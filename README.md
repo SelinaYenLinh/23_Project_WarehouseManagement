@@ -1,74 +1,64 @@
-# 🚛 Warehouse Management
+# Truck Journey Tracking System (Excel VBA)
 
-An integrated **Excel + VBA automation system** for container inventory and GPS tracking.  
-This tool helps logistics teams manage real-time warehouse inspection ("Nghiệm Kho") data, vehicle GPS logs, and audit events — all directly within a single Excel workbook.
-
----
 Download VBA File: https://drive.google.com/file/d/1LHkU1yZ6yrsBK6_H3Xm85mqENwsKNqe1/view?usp=sharing
-## 📦 Overview
 
-**Warehouse Management** is part of the broader *VanTaiBT* logistics ecosystem.  
-It provides a centralized dashboard for recording, auditing, and visualizing container operations through VBA macros, dynamic shapes, and GPS integration.
+## Overview
 
-Key features:
-- **Warehouse inspection (“Nghiệm kho”)** tracking for each container/vehicle.
-- **GPS log parsing** to map movements and confirm arrival/departure events.
-- **Audit Log System** integrated with unique `Machine_ID` and timestamp.
-- **Excel VBA automation** for UI navigation, data validation, and report generation.
-- **Offline-first architecture**: works fully in Excel, with optional Google Sheet sync.
+This project is an Excel VBA-based system designed to track and standardize the transportation process of company trucks from factory pickup to port delivery. It provides verified journey data, GPS image evidence, and delivery confirmation to improve coordination between factories and logistics partners.
 
----
+## Motivation
 
-## ⚙️ Technical Architecture
+In the existing workflow, shipment tracking and delivery confirmation were handled manually. This created inconsistencies in records, delayed verification processes, and increased the risk of disputes between stakeholders. A centralized and automated tracking system was required to ensure transparency and operational efficiency.
 
-| Layer | Description |
-|-------|--------------|
-| **Frontend (Excel UI)** | Custom shapes, buttons, icons (e.g., `Shp_Btn_Style01`, `Animate_Shape_Box`) designed for modern dashboard control |
-| **Logic Layer (VBA)** | Class-based modules (`CArrayHelper`, `App_State`) for performance and array handling |
-| **Data Layer (Sheets)** | Sheets like `Audit_Log`, `NhatKy_Audit`, and `Machine_Registry` storing structured transaction data |
-| **External Integration** | Calls `Google Apps Script WebApp` endpoints (`exists_machine`, `Audit_Log`) for online syncing |
-| **Database** |Using `Microsoft Assets` |
+## Problem Statement
 
----
+Without a unified tracking solution:
 
-## 📋 Main Modules
+* Shipment confirmation depended on manual communication.
+* Journey records were fragmented and difficult to verify.
+* Lack of GPS evidence reduced data reliability.
+* Delays and disputes were difficult to investigate.
+* Operational time and cost increased due to repeated reconciliation.
 
-| Module | Function |
-|---------|-----------|
-| `Audit_Log` | Records local events with timestamps and Machine IDs |
-| `GPS_Import` | Parses and validates GPS data from external CSV or API logs |
-| `Nghiem_Kho_Form` | Provides user interface for warehouse inspection entry |
-| `Machine_ID_Check` | Verifies machine registration with Google Apps Script |
-| `Optimize_Performance` | Toggles Excel performance features (ScreenUpdating, Events) |
-| `CArrayHelper` | Manages dynamic arrays with Option Base 1 for range alignment |
+## Solution
 
----
+A structured Excel VBA system was developed to automate journey recording, store verifiable data, and standardize documentation for shipment tracking.
 
-## 🔐 Data Security & Traceability
+## Key Features
 
-- Each user action is logged into `NhatKy_Audit` with:
-  - **UserID / MachineID**
-  - **Action type (Insert, Update, Delete)**
-  - **Timestamp**
-- Optional cloud sync via Apps Script ensures audit consistency across devices.
+* Record truck arrival time at the factory
+* Log loading start and departure time
+* Track travel distance and journey details
+* Store GPS image evidence of pickup vehicles
+* Record arrival time at the port
+* Confirm container drop-off time
+* Generate automated reconciliation reports
+* Standardize data entry and documentation workflow
 
----
+## Process Impact
 
-## 🧭 Usage Guide
+* Faster shipment confirmation and document processing
+* Improved transparency between factory and logistics partners
+* Reduced manual verification and operational delays
+* Enhanced traceability of transportation history
+* Lower risk of data discrepancies and disputes
 
-1. **Enable Macros** when opening the file.  
-2. Navigate using the **Home Dashboard**.  
-3. Use the **GPS Import** button to load GPS data (`.csv` or API).  
-4. Review and confirm “Nghiệm Kho” results.  
-5. Logs are automatically written into `Audit_Log`.  
-6. Optionally trigger **Sync to Google Sheet** (if connected).
+## Technologies Used
 
+* Microsoft Excel
+* VBA (Visual Basic for Applications)
+* Automated data entry forms
+* Structured reporting system
+* GPS image documentation integration
 
-## 🧩 Dependencies
+## Role & Responsibilities
 
-- **Excel 2019 / 365** (with VBA enabled)
-- **Windows 10+**
-- **Internet connection** (for cloud sync)
-- Optional: Google Apps Script endpoints  
-  - `/exists_machine`  
-  - `/Audit_Log`
+* Analyzed operational workflow and requirements
+* Designed data structure and tracking logic
+* Developed VBA automation modules
+* Built input forms and reporting templates
+* Implemented and optimized the tracking process
+
+## Result
+
+The system streamlined shipment coordination, improved verification accuracy, and established a standardized process for tracking truck journeys from factory to port.
